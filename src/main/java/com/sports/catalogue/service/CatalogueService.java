@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CatalogueService {
@@ -19,6 +20,12 @@ public class CatalogueService {
     }
     public List<Catalogue> getAllProduct(){
             return catalogueRepository.findAll();
+    }
+    public Optional<Catalogue> getProductById(String id){
+        return catalogueRepository.findById(id);
+    }
+    public void removeProduct(String id){
+        catalogueRepository.deleteById(id);
     }
 
 }
